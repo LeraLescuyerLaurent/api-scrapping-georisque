@@ -28,7 +28,6 @@ app.get('/api/georisque/commune/:codeInsee/:codePostal/:commune',async (req, res
     const url = `https://www.georisques.gouv.fr/mes-risques/connaitre-les-risques-pres-de-chez-moi/rapport?form-commune=true&codeInsee=${codeInsee}&ign=false&CGU-commune=on&commune=${codePostal}+${commune}`;
     const browser = await  puppeteer.launch({
         headless: false,
-        args:  args,
         defaultViewport:  defaultViewport,
         // executablePath: 'C:\Program Files\Google\Chrome\Application\chrome.exe' || await  executablePath , 
         ignoreHTTPSErrors: true,
