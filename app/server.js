@@ -18,7 +18,7 @@ const port = process.env.PORT || 3000;
 
 app.use(cors({ 
     origin : '*'
-}));
+})); 
 
 app.get('/api/georisque/commune/:codeInsee/:codePostal/:commune',async (req, res, next) => {
     const codeInsee = req.params.codeInsee;
