@@ -30,7 +30,7 @@ app.get('/api/georisque/commune/:codeInsee/:codePostal/:commune',async (req, res
         headless: true,
         // executablePath: 'C:\Program Files\Google\Chrome\Application\chrome.exe' || await  executablePath , 
         ignoreHTTPSErrors: true,
-        ignoreDefaultArgs: ['--disable-extensions', '--disable-gpu', '--disable-dev-shm-usage', '--disable-setuid-sandbox', '--no-first-run', '--no-sandbox', '--no-zygote'],
+        ignoreDefaultArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
     await page.goto(url, {
