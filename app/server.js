@@ -10,7 +10,7 @@ import fetch from "node-fetch";
 import express from "express";
 import cors from "cors";
 import puppeteer from "puppeteer";
-app = express();
+const app = express();
 // const codeInsee = '01249';
 // const codePostal = '01700';
 // const commune = 'miribel';
