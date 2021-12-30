@@ -14,7 +14,7 @@ const app = express();
 // const codeInsee = '01249';
 // const codePostal = '01700';
 // const commune = 'miribel';
-
+const PORT = process.env.PORT || 3000;
 
 app.use(cors({ 
     origin : '*'
@@ -60,4 +60,4 @@ app.get('/api/georisque/commune/:codeInsee/:codePostal/:commune',async (req, res
 
 
 
-app.listen(process.env.PORT);
+app.listen(PORT);
