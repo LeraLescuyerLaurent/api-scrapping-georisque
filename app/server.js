@@ -23,7 +23,7 @@ app.use(cors({
 app.get('/api/georisque/commune/:codeInsee/:codePostal/:commune',async (req, res, next) => {
     const codeInsee = req.params.codeInsee;
     const codePostal = req.params.codePostal;
-    const commune = req.params.commune;
+    const commune = req.params.commune; 
 
     const url = `https://www.georisques.gouv.fr/mes-risques/connaitre-les-risques-pres-de-chez-moi/rapport?form-commune=true&codeInsee=${codeInsee}&ign=false&CGU-commune=on&commune=${codePostal}+${commune}`;
     const browser = await  puppeteer.launch({
