@@ -9,10 +9,7 @@
 import fetch from "node-fetch";
 import express from "express";
 import cors from "cors";
-import chromium from "chrome-aws-lambda";
-import puppeteer from "puppeteer-core";
-const app = express();
-
+import puppeteer from "puppeteer";
 // const codeInsee = '01249';
 // const codePostal = '01700';
 // const commune = 'miribel';
@@ -28,13 +25,11 @@ app.get('/api/georisque/commune/:codeInsee/:codePostal/:commune',async (req, res
     const commune = req.params.commune;
 
     const url = `https://www.georisques.gouv.fr/mes-risques/connaitre-les-risques-pres-de-chez-moi/rapport?form-commune=true&codeInsee=${codeInsee}&ign=false&CGU-commune=on&commune=${codePostal}+${commune}`;
-    const browser = await chromium.puppeteer.launch({
+    const browser = await  puppeteer.launch({
         headless: false,
-        args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
-        // executablePath: 'C:\Program Files\Google\Chrome\Application\chrome.exe' || await chromium.executablePath , 
-        executablePath:  await chromium.executablePath , 
-        headless: chromium.headless,
+        args:  args,
+        defaultViewport:  defaultViewport,
+        // executablePath: 'C:\Program Files\Google\Chrome\Application\chrome.exe' || await  executablePath , 
         ignoreHTTPSErrors: true,
         ignoreDefaultArgs: ['--disable-extensions', '--disable-gpu', '--disable-dev-shm-usage', '--disable-setuid-sandbox', '--no-first-run', '--no-sandbox', '--no-zygote'],
     });
@@ -64,4 +59,4 @@ app.get('/api/georisque/commune/:codeInsee/:codePostal/:commune',async (req, res
 
 
 
-app.listen(3010 || process.env.PORT);
+app.listen(process.env.PORT);
